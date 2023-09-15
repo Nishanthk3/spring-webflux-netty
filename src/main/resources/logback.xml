@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <property name="CONSOLE_LOG_PATTERN"
+              value="%d %-4relative %-5level %logger{36} [%t] - %msg%n%ex"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_LOGGER" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>500</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <logger name="com.webflux.demo" level="info"/>
+    <logger name="org.springframework" level="warn"/>
+
+    <root level="ERROR">
+        <appender-ref ref="ASYNC_LOGGER"/>
+    </root>
+</configuration>
