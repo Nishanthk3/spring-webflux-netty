@@ -8,8 +8,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class SpringWebFluxNettyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringWebFluxNettyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringWebFluxNettyApplication.class, args);
+    }
 
 }
